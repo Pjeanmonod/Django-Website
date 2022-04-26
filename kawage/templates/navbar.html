@@ -6,21 +6,32 @@
 
 
 
-<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+<nav class="navbar navbar-expand-lg bg-secondary text-uppercse fixed-top" id="mainNav">
     <div class="container">
-        <p style="font-size: 20px; color: #FF5733">API</p>
-        <a class="navbar-brand" href="{{ index_url }}" >net - Automation</a>
-        <button class="navbar-toggler text-uppercase font-weight-bold bbb-bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            Menu
+        <span style="font-size: 30px;"> { api } &nbsp; </span>
+        <a class="navbar-brand" href="{{ index_url }}">Neptune</a>
+        <button class="navbar-toggler text-uppercase font-weight-bold bbb-bg-primary text-white rounded" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
+            aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 {% if request.path == index_url %}active{% endif %}" href="{{ index_url }}">Home</a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 {% if request.path == about_url %}active{% endif %}" href="{{ about_url }}">About</a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 {% if request.path == contact_url %}active{% endif %}" href="{{ contact_url }}">Contact</a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 {% if request.path == login_url %}active{% endif %}" href="{{ login_url }}">Login</a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 {% if request.path == profile_url %}active{% endif %}" href="{{ profile_url }}">Profile</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a
+                        class="nav-link py-3 px-0 px-lg-3 {% if request.path == index_url %}active{% endif %}"
+                        href="{{ index_url }}">Home</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a
+                        class="nav-link py-3 px-0 px-lg-3 {% if request.path == about_url %}active{% endif %}"
+                        href="{{ about_url }}">Build</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a
+                        class="nav-link py-3 px-0 px-lg-3 {% if request.path == contact_url %}active{% endif %}"
+                        href="{{ contact_url }}">AWS</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a
+                        class="nav-link py-3 px-0 px-lg-3 {% if request.path == login_url %}active{% endif %}"
+                        href="{{ login_url }}">Login</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a
+                        class="nav-link py-3 px-0 px-lg-3 {% if request.path == profile_url %}active{% endif %}"
+                        href="{{ profile_url }}">Profile</a></li>
             </ul>
         </div>
     </div>

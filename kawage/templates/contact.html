@@ -3,7 +3,163 @@
 {% block title %}Contact{% endblock %}
 
 {% block content %}
-<h1>
-    Contact
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=2">
+  <script>
+    var subjectObject = {
+      "Front-end": {
+        "HTML": ["Links", "Images", "Tables", "Lists"],
+        "CSS": ["Borders", "Margins", "Backgrounds", "Float"],
+        "JavaScript": ["Variables", "Operators", "Functions", "Conditions"]
+      },
+      "Back-end": {
+        "PHP": ["Variables", "Strings", "Arrays"],
+        "SQL": ["SELECT", "UPDATE", "DELETE"]
+      }
+    }
+    window.onload = function () {
+      var subjectSel = document.getElementById("subject");
+      var topicSel = document.getElementById("topic");
+      var chapterSel = document.getElementById("chapter");
+      for (var x in subjectObject) {
+        subjectSel.options[subjectSel.options.length] = new Option(x, x);
+      }
+      subjectSel.onchange = function () {
+        //empty Chapters- and Topics- dropdowns
+        chapterSel.length = 1;
+        topicSel.length = 1;
+        //display correct values
+        for (var y in subjectObject[this.value]) {
+          topicSel.options[topicSel.options.length] = new Option(y, y);
+        }
+      }
+      topicSel.onchange = function () {
+        //empty Chapters dropdown
+        chapterSel.length = 1;
+        //display correct values
+        var z = subjectObject[subjectSel.value][this.value];
+        for (var i = 0; i < z.length; i++) {
+          chapterSel.options[chapterSel.options.length] = new Option(z[i], z[i]);
+        }
+      }
+    }
+  </script>
+</head>
+<div class="container mt-3">
+  <h2>&nbsp;&nbsp;Configure Your AWS Environment</h2>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fill out each step with your selections and then press submit to iniaite a
+    build out. Once complete resulting artifacts will be available in uour account. </p>
+  <div class="container mt-3">
+    <div class="card">
+      <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+              <span style="font-size:24px;"><strong> STEP 1 - &nbsp; </strong> </span> <span
+                style="font-size: 20px;">Set
+                up BGP
+                Configuration </span>
+            </button>
+          </h2>
+          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+            data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+              <form action="/action_page.php">
+                <label for="sel1" class="form-label">Select BGP timers required for peering:</label>
+                <select class="form-select" id="sel1" name="sellist1">
+                  <option>3 & 9</option>
+                  <option>5 & 15</option>
+                </select>
+                <br>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="mySwitch" name="darkmode" value="yes" checked>
+                  <label class="form-check-label" for="mySwitch">MD5 Password?</label>
+                </div>
+                <br>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="mySwitch" name="darkmode" value="yes" checked>
+                  <label class="form-check-label" for="mySwitch">BFD?</label>
+                </div>
+                <div class="container mt-3">
+                  <form action="/action_page.php">
+                    <div class="form-floating mb-3 mt-3">
+                      <textarea class="form-control" id="comment" name="text"
+                        placeholder="Comment goes here"></textarea>
+                      <label for="comment">Peering name</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+              <span style="font-size:24px;"><strong> STEP 2 - &nbsp; </strong> </span> <span
+                style="font-size: 20px;">Select
+                VLANs</span>
+            </button>
+          </h2>
+          <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+            data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+              <label for="browser" class="form-label">Choose your VLAN from the list:</label>
+              <input class="form-control" list="browsers" name="browser" id="browser">
+              <datalist id="browsers">
+                <option value="VLAN 10">
+                <option value="VLAN 20">
+                <option value="VLAN 30">
+                <option value="VLAN 40">
+                <option value="VLAN 50">
+              </datalist>
+              <br>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+              <span style="font-size:24px;"><strong> STEP 3 - &nbsp; </strong> </span> <span style="font-size: 20px;">
+                Configure
+                ACLs</span>
+            </button>
+          </h2>
+          <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+            data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+
+              <body>
+                <form name="form1" id="form1" action="/action_page.php">
+                  Subjects: &nbsp;&nbsp;&nbsp;&nbsp;<select class="form-select" name="subject" id="subject">
+                    <option value="" selected="selected">Select subject</option>
+                  </select>
+                  <br><br>
+                  Topics: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select class="form-select" name="topic" id="topic">
+                    <option value="" selected="selected">Please select subject first</option>
+                  </select>
+                  <br><br>
+                  Chapters: &nbsp;&nbsp;<select class="form-select" name="chapter" id="chapter">
+                    <option value="" selected="selected">Please select topic first</option>
+                  </select>
+                  <br><br>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+              </body>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</html>
 {% endblock %}

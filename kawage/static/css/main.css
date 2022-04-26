@@ -11,13 +11,13 @@
 @font-face {
     font-family: "kawage font";
     src: 
-    url("fonts/RoboSapienExpanded-d9GvZ.otf") format("opentype");
+    url("fonts/Azonix-1VB0.otf") format("opentype");
 }
 
 .navbar-brand {
     font-family: "kawage font";
-    text-transform: lowercase;
-    font-size: 3em;
+    /* text-transform: lowercase; */
+    font-size: 2.9em;
 }
 
 .bbb-bg-primary {
@@ -31,15 +31,15 @@
 }
 
 #mainNav .navbar-nav li.nav-item a.nav-link:hover {
-    color:#FF5733;
-    border-color: #FF5733;
+    color:#17a98c;
+    border-color: #17a98c;
 
 }
 
 #mainNav .navbar-nav li.nav-item a.nav-link:active {
     background: none;
     color: white;
-    border-color: #FF5733;
+    border-color: white;
 
 }
 
@@ -54,4 +54,3 @@
     font-size: 3em;
 
 }
-
