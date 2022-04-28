@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "kawage.apps.accounts",
+    "kawage.apps.api",
 ]
 
 MIDDLEWARE = [
