@@ -74,26 +74,36 @@
                   <option>3 & 9</option>
                   <option>5 & 15</option>
                 </select>
-                <br>
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" id="mySwitch" name="darkmode" value="yes" checked>
-                  <label class="form-check-label" for="mySwitch">MD5 Password?</label>
+              </form>
+              <br>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" onclick="myFunction()" id="mySwitch" name="darkmode"
+                  value="no" checked>
+                <label class="form-check-label" for="mySwitch">MD5 Password?</label>
+              </div>
+              <br>
+              <form action="/action_page.php">
+                <div class="form-floating mb-3 mt-3" id="myDIV">
+                  <textarea class="form-control" id="comment" name="text" placeholder="Comment goes here"></textarea>
+                  <label for="comment">Enter Password</label>
                 </div>
-                <br>
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" id="mySwitch" name="darkmode" value="yes" checked>
-                  <label class="form-check-label" for="mySwitch">BFD?</label>
-                </div>
-                <div class="container mt-3">
-                  <form action="/action_page.php">
-                    <div class="form-floating mb-3 mt-3">
-                      <textarea class="form-control" id="comment" name="text"
-                        placeholder="Comment goes here"></textarea>
-                      <label for="comment">Peering name</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                  </form>
-                </div>
+              </form>
+
+              <script>
+                function myFunction() {
+                  var x = document.getElementById("myDIV");
+                  if (x.style.display === "none") {
+                    x.style.display = "block";
+                  } else {
+                    x.style.display = "none";
+                  }
+                }
+              </script>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="mySwitch" name="darkmode" value="yes">
+                <label class="form-check-label" for="mySwitch">BFD?</label>
+              </div>
+              <br>
             </div>
           </div>
         </div>
@@ -112,11 +122,11 @@
               <label for="browser" class="form-label">Choose your VLAN from the list:</label>
               <input class="form-control" list="browsers" name="browser" id="browser">
               <datalist id="browsers">
-                <option value="VLAN 10">
-                <option value="VLAN 20">
-                <option value="VLAN 30">
-                <option value="VLAN 40">
-                <option value="VLAN 50">
+                <option value="VLAN 10 Management">
+                <option value="VLAN 20 Order Execution">
+                <option value="VLAN 30 Market data A">
+                <option value="VLAN 40 Market Data B">
+                <option value="VLAN 50 PTP">
               </datalist>
               <br>
               <button type="submit" class="btn btn-primary">Submit</button>
@@ -142,7 +152,8 @@
                     <option value="" selected="selected">Select subject</option>
                   </select>
                   <br><br>
-                  Topics: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select class="form-select" name="topic" id="topic">
+                  Topics: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select class="form-select" name="topic"
+                    id="topic">
                     <option value="" selected="selected">Please select subject first</option>
                   </select>
                   <br><br>
