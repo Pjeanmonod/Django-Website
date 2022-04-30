@@ -46,11 +46,20 @@
 .masthead {
     background-image: url("../theme/assets/img/portfolio/billy.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% 180%;
+    padding-bottom: 12rem;
+    padding-top: 10rem;
 
 }
 
 .from-label {
-    font-size: 3em;
+    font-size: 5em;
+
+}
+
+.masthead-heading8 {
+    top:67%;
+    right:1%;
+    position:absolute; 
 
 }
