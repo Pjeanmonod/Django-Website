@@ -78,27 +78,16 @@
               <br>
               <div class="form-check form-switch">
                 <input class="form-check-input" type="checkbox" onclick="myFunction()" id="mySwitch" name="darkmode"
-                  value="no" checked>
+                  value="no">
                 <label class="form-check-label" for="mySwitch">MD5 Password?</label>
               </div>
               <br>
               <form action="/action_page.php">
-                <div class="form-floating mb-3 mt-3" id="myDIV">
+                <div class="form-floating mb-3 mt-3" id="myDIV" style="display:none">
                   <textarea class="form-control" id="comment" name="text" placeholder="Comment goes here"></textarea>
                   <label for="comment">Enter Password</label>
                 </div>
               </form>
-
-              <script>
-                function myFunction() {
-                  var x = document.getElementById("myDIV");
-                  if (x.style.display === "none") {
-                    x.style.display = "block";
-                  } else {
-                    x.style.display = "none";
-                  }
-                }
-              </script>
               <div class="form-check form-switch">
                 <input class="form-check-input" type="checkbox" id="mySwitch" name="darkmode" value="yes">
                 <label class="form-check-label" for="mySwitch">BFD?</label>
@@ -171,6 +160,16 @@
       </div>
     </div>
   </div>
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myDIV");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
+  </script>
 
 </html>
 {% endblock %}
