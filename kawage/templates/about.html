@@ -3,36 +3,79 @@
 {% block title %}About{% endblock %}
 
 {% block content %}
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
-<body>
-   <div class="container mt-3">
-      <div class="form-check form-switch">
-         <input class="form-check-input" onclick="myFunction()" type="checkbox" id="mySwitch" name="darkmode"
-            value="yes" checked>
-         <label class="form-check-label" for="mySwitch">MD5 Password?</label>
-      </div>
-
-      <form action="/action_page.php">
-         <div class="form-floating mb-3 mt-3" id="myDIV">
-            <textarea class="form-control" id="comment" name="text" placeholder="Comment goes here"></textarea>
-            <label for="comment">Enter Password</label>
-         </div>
-      </form>
-
-      <script>
-         function myFunction() {
-            var x = document.getElementById("myDIV");
-            if (x.style.display === "none") {
-               x.style.display = "block";
-            } else {
-               x.style.display = "none";
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=2">
+   <script>
+      var subjectObject = {
+         "Azure": {
+            "Virtual Networking": ["VPN Gateway", "Load Balancer", "Application Gateway", "Network"],
+            "Virtual Machines": ["Desktop", "WVDs", "Databases", "DC's"],
+            "App Services": ["Variables", "Operators", "Functions", "Conditions"]
+         },
+         "AWS": {
+            "PHP": ["Variables", "Strings", "Arrays"],
+            "SQL": ["SELECT", "UPDATE", "DELETE"]
+         }
+      }
+      window.onload = function () {
+         var subjectSel = document.getElementById("subject");
+         var topicSel = document.getElementById("topic");
+         var chapterSel = document.getElementById("chapter");
+         for (var x in subjectObject) {
+            subjectSel.options[subjectSel.options.length] = new Option(x, x);
+         }
+         subjectSel.onchange = function () {
+            //empty Chapters- and Topics- dropdowns
+            chapterSel.length = 1;
+            topicSel.length = 1;
+            //display correct values
+            for (var y in subjectObject[this.value]) {
+               topicSel.options[topicSel.options.length] = new Option(y, y);
             }
          }
-      </script>
-   </div>
+         topicSel.onchange = function () {
+            //empty Chapters dropdown
+            chapterSel.length = 1;
+            //display correct values
+            var z = subjectObject[subjectSel.value][this.value];
+            for (var i = 0; i < z.length; i++) {
+               chapterSel.options[chapterSel.options.length] = new Option(z[i], z[i]);
+            }
+         }
+      }
+   </script>
+</head>
+<br>
+<br>
+<div class="container mt-3">
 
-</body>
+   <body>
+      <form name="form1" id="form1" action="/action_page.php">
+         <p style="font-size:24px;">
+               Choose which cloud: </span> &nbsp;&nbsp;&nbsp;&nbsp; </p><select class="form-select" name="subject"
+            id="subject">
+            <option value="" selected="selected">Select cloud</option>
+         </select>
+         <br><br>
+         <p style="font-size:24px;">
+            Chose the component: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         </p><select class="form-select" name="topic" id="topic">
+            <option value="" selected="selected">Please select subject first</option>
+         </select>
+         <br><br>
+         <p style="font-size:24px;">
+            Select element: &nbsp;&nbsp;</p><select class="form-select" name="chapter" id="chapter">
+            <option value="" selected="selected">Please select topic first</option>
+         </select>
+         <br><br>
+         <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+   </body>
+</div>
 
 </html>
 {% endblock %}
