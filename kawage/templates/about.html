@@ -3,6 +3,9 @@
 {% block title %}About{% endblock %}
 
 {% block content %}
+
+{% url 'public:contact' as contact_url %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +13,7 @@
    <div class="container-xl px-4">
       <div class="text-center">
          <br><br>
-         <h1 class="text-white">Welcome to true Multi-Cloud Automation</h1>
+         <h1 class="text-white">Welcome to transparent Multi-Cloud Automation</h1>
          <p class="lead mb-0 text-white-50">A single place to transparently automate multicloud deployments</p>
       </div>
    </div>
@@ -79,10 +82,13 @@
             <option value="" selected="selected">Please select topic first</option>
          </select>
          <br><br>
-         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
-
    </body>
+</div>
+<div class="container mt-3">
+   <a href="{{ contact_url }}">
+      <button type="submit" class="btn btn-primary">Submit</button>
+   </a>
 </div>
 
 </html>

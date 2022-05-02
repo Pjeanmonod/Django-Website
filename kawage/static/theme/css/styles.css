@@ -6404,6 +6404,8 @@ textarea.form-control-lg {
   cursor: wait;
   background-color: currentColor;
   opacity: 0.5;
+  text-align: center;
+
 }
 .placeholder.btn::before {
   display: inline-block;
