@@ -29,26 +29,26 @@ class JobVar(models.Model):
 
 
 
-class Job(models.Model):
-    job_id = models.IntegerField(primary_key=True)
-    display_name = models.CharField(max_length=60)
-    slug = models.CharField(max_length=60)
-    description = models.CharField(max_length=60)
-    role = models.CharField(max_length=60)
-    role_display_name = models.CharField(max_length=60)
-    req_vars = models.ManyToManyField(JobVar)
+# class Job(models.Model):
+#     job_id = models.IntegerField(primary_key=True)
+#     display_name = models.CharField(max_length=60)
+#     slug = models.CharField(max_length=60)
+#     description = models.CharField(max_length=60)
+#     role = models.CharField(max_length=60)
+#     role_display_name = models.CharField(max_length=60)
+#     req_vars = models.ManyToManyField(JobVar)
 
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name
 
 
-class Role(models.Model):
-    role_id = models.IntegerField(primary_key=True)
-    display_name = models.CharField(max_length=60)
-    description = models.CharField(max_length=200)
-    slug = models.CharField(max_length=60)
-    jobs = models.ManyToManyField(Job)
+# class Role(models.Model):
+#     role_id = models.IntegerField(primary_key=True)
+#     display_name = models.CharField(max_length=60)
+#     description = models.CharField(max_length=200)
+#     slug = models.CharField(max_length=60)
+#     jobs = models.ManyToManyField(Job)
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name
