@@ -4,14 +4,14 @@
 
 @media (min-width: 992px) {
     #main {
-      padding-top: calc(104px);
+        padding-top: calc(104px);
     }
 }
 
 @font-face {
     font-family: "kawage font";
-    src: 
-    url("fonts/Azonix-1VB0.otf") format("opentype");
+    src:
+        url("fonts/Azonix-1VB0.otf") format("opentype");
 }
 
 .navbar-brand {
@@ -31,7 +31,7 @@
 }
 
 #mainNav .navbar-nav li.nav-item a.nav-link:hover {
-    color:#17a98c;
+    color: #17a98c;
     border-color: #17a98c;
 
 }
@@ -60,7 +60,16 @@
 .masthead-heading8 {
     top: 65%;
     right: 2%;
-    position:absolute; 
+    position: absolute;
 
 }
 
+.select option:checked:after {
+    content: attr(title);
+    background: #666;
+    color: #fff;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    border: none;
+}
