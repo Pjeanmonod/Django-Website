@@ -29,39 +29,26 @@ class JobVar(models.Model):
 
 
 
-class Jobs(models.Model):
-
-    #   - ID: 100
-    # displayName: 'Access Port (Full)'
-    # description: 'Configure an access port for end VLAN. Full config.'
-    # slug: port_access_add
-    # role: interface
-    # roleDisplayName: Interfaces
-    # requiredVars: [1000,1001,1002]
-
+class Job(models.Model):
     job_id = models.IntegerField(primary_key=True)
     display_name = models.CharField(max_length=60)
     slug = models.CharField(max_length=60)
     description = models.CharField(max_length=60)
     role = models.CharField(max_length=60)
     role_display_name = models.CharField(max_length=60)
-    #req_vars = models.ManyToOneRel(models.)
+    req_vars = models.ManyToManyField(JobVar)
+
 
     def __str__(self):
         return self.name
 
 
-class Roles(models.Model):
+class Role(models.Model):
+    role_id = models.IntegerField(primary_key=True)
+    display_name = models.CharField(max_length=60)
+    description = models.CharField(max_length=200)
+    slug = models.CharField(max_length=60)
+    jobs = models.ManyToManyField(Job)
 
     def __str__(self):
         return self.name
-
-
-
-    #       - ID: 100
-    # displayName: 'Access Port (Full)'
-    # description: 'Configure an access port for end VLAN. Full config.'
-    # slug: port_access_add
-    # role: interface
-    # roleDisplayName: Interfaces
-    # requiredVars: [1000,1001,1002]
