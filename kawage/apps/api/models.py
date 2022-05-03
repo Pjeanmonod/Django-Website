@@ -29,39 +29,26 @@ class JobVar(models.Model):
 
 
 
-class Jobs(models.Model):
-
-    #   - ID: 100
-    # displayName: 'Access Port (Full)'
-    # description: 'Configure an access port for end VLAN. Full config.'
-    # slug: port_access_add
-    # role: interface
-    # roleDisplayName: Interfaces
-    # requiredVars: [1000,1001,1002]
-
-    job_id = models.IntegerField(primary_key=True)
-    display_name = models.CharField(max_length=60)
-    slug = models.CharField(max_length=60)
-    description = models.CharField(max_length=60)
-    role = models.CharField(max_length=60)
-    role_display_name = models.CharField(max_length=60)
-    #req_vars = models.ManyToOneRel(models.)
-
-    def __str__(self):
-        return self.name
+# class Job(models.Model):
+#     job_id = models.IntegerField(primary_key=True)
+#     display_name = models.CharField(max_length=60)
+#     slug = models.CharField(max_length=60)
+#     description = models.CharField(max_length=60)
+#     role = models.CharField(max_length=60)
+#     role_display_name = models.CharField(max_length=60)
+#     req_vars = models.ManyToManyField(JobVar)
 
 
-class Roles(models.Model):
-
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name
 
 
+# class Role(models.Model):
+#     role_id = models.IntegerField(primary_key=True)
+#     display_name = models.CharField(max_length=60)
+#     description = models.CharField(max_length=200)
+#     slug = models.CharField(max_length=60)
+#     jobs = models.ManyToManyField(Job)
 
-    #       - ID: 100
-    # displayName: 'Access Port (Full)'
-    # description: 'Configure an access port for end VLAN. Full config.'
-    # slug: port_access_add
-    # role: interface
-    # roleDisplayName: Interfaces
-    # requiredVars: [1000,1001,1002]
+#     def __str__(self):
+#         return self.name
